@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Resizable Panels Demo
+
+A Next.js demo application showcasing resizable panel layouts using [react-resizable-panels](https://github.com/bvaughn/react-resizable-panels) with [shadcn/ui](https://ui.shadcn.com/) components.
+
+## Tech Stack
+
+- Next.js 16 (App Router)
+- React 19
+- TypeScript 5
+- Tailwind CSS 4
+- react-resizable-panels v4
+- shadcn/ui components
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+# Install dependencies
+pnpm install
+
+# Run development server
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to see the demo.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+├── app/
+│   ├── page.tsx           # Home page
+│   ├── ResizableDemo.tsx  # Demo component
+│   └── globals.css        # Global styles
+├── components/ui/
+│   └── resizable.tsx      # shadcn/ui resizable components
+├── documents/             # Reference documentation
+│   ├── resizable-panels-usage-guide.md
+│   ├── imperative-panel-api-guide.md
+│   └── react-resizable-panels-v4-migration.md
+└── lib/
+    └── utils.ts           # Utility functions
+```
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+- Horizontal and vertical resizable panel groups
+- Nested panel layouts
+- Draggable resize handles
+- shadcn/ui styled components
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## v4 Migration Notes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project uses `react-resizable-panels` v4 with updated APIs:
 
-## Deploy on Vercel
+| v3 | v4 |
+|---|---|
+| `direction` prop | `orientation` prop |
+| `data-[panel-group-direction=...]` | `aria-[orientation=...]` |
+| `ImperativePanelHandle` type | `usePanelRef()` hook |
+| `<Panel ref={...}>` | `<Panel panelRef={...}>` |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+See [fix-changelog.md](https://github.com/bvaughn/react-resizable-panels/blob/main/CHANGELOG.md) for full migration details.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Documentation
+
+Link: https://react-resizable-panels.vercel.app/ 
